@@ -44,42 +44,43 @@ sample_pdfs/ # Example PDFs for testing
 python3 -m venv venv
 source venv/bin/activate   # Mac/Linux
 venv\Scripts\activate      # Windows
-3. Install Dependencies
+```
+###3. Install Dependencies
 pip install -r requirements.txt
-4. Run Ollama Server
+###4. Run Ollama Server
 Check if Ollama is running on the default port:
 lsof -i :11434
 If not running, start Ollama.
 ⚠️ Make sure there are no port conflicts.
 ▶️ Running the Application
 Add your PDF files to the pdf_paths list in app.py.
-Launch the Streamlit app:
+##Launch the Streamlit app:
 streamlit run app.py
 Open the UI in your browser: http://localhost:8501
-🧑‍💻 Usage
+##🧑‍💻 Usage
 Start the application and upload your PDFs
 Enter your question in natural language
 The system will:
 Retrieve relevant chunks from ChromaDB
 Generate a context-aware response with the local LLM
 Sources of retrieved information are displayed for reference
-✨ Code Highlights
+##✨ Code Highlights
 Custom LLM Integration:
 The CustomOllamaLLM class in app.py directly interfaces with Ollama’s local server → no API keys needed.
 LangChain + ChromaDB:
 Efficient document chunking, embedding, retrieval, and querying.
 Local Embeddings:
 Uses Sentence Transformers (all-MiniLM-L6-v2) to generate embeddings locally for privacy and offline use.
-⚠️ Known Issues
+##⚠️ Known Issues
 Port Conflicts:
 Ensure only one Ollama instance runs on port 11434.
 Server Unavailability:
 If Ollama server is unreachable, verify it’s installed and running.
-🔮 Future Improvements
+##🔮 Future Improvements
 Add real-time PDF upload directly via Streamlit
 Experiment with advanced LLMs for richer responses
 Explore alternative retrieval methods in LangChain for improved accuracy
-📦 Requirements
+##📦 Requirements
 Python 3.8+
 fitz (PyMuPDF) → PDF handling
 langchain → Document processing
